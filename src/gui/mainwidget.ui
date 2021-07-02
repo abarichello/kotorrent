@@ -38,7 +38,7 @@
     <property name="title">
      <string>Debug</string>
     </property>
-    <addaction name="actionToggle_console"/>
+    <addaction name="actionToggleConsole"/>
     <addaction name="separator"/>
     <addaction name="actionRotate"/>
     <addaction name="actionRefreshScreen"/>
@@ -87,7 +87,7 @@
     <string>Refresh screen</string>
    </property>
   </action>
-  <action name="actionToggle_console">
+  <action name="actionToggleConsole">
    <property name="checkable">
     <bool>true</bool>
    </property>

@@ -3,6 +3,7 @@
 #include <QWidget>
 #include <QString>
 #include <QPlainTextEdit>
+#include <QPushButton>
 #include <QDebug>
 
 namespace Ui {
@@ -16,10 +17,14 @@ public:
     explicit Console(QWidget* parent = nullptr);
     ~Console();
 
-    static void update();
+    void update();
 
 private:
     Ui::Console* ui;
+
+    std::unique_ptr<QPushButton> refreshButton;
+    std::unique_ptr<QPushButton> clearButton;
+    std::unique_ptr<QPushButton> closeButton;
 
     std::unique_ptr<QPlainTextEdit> textEdit;
 };

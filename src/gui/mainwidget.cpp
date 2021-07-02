@@ -1,18 +1,15 @@
 #include "mainwidget.h"
-#include "ui_mainwidget.h"
-
-#ifdef KOBO
-#include "koboplatformfunctions.h"
-#endif
 
 MainWidget::MainWidget(QWidget* parent)
     : QWidget(parent),
       ui(new Ui::MainWidget),
+      console(new Console()),
       menu(ui->menu),
-      menuKobo(ui->menuKobo),
       actionExit(ui->actionExit),
+      menuKobo(ui->menuKobo),
       actionWifi(ui->actionWifi),
       menuDebug(ui->menuDebug),
+      actionToggleConsole(ui->actionToggleConsole),
       actionRotate(ui->actionRotate),
       actionRefreshScreen(ui->actionRefreshScreen) {
     ui->setupUi(this);
@@ -21,6 +18,10 @@ MainWidget::MainWidget(QWidget* parent)
     connect(ui->actionWifi, SIGNAL(triggered(bool)), this, SLOT(toggleWifi(bool)));
 #endif
     connect(ui->actionExit, SIGNAL(triggered(bool)), this, SLOT(exitApplication()));
+    connect(ui->actionToggleConsole, SIGNAL(triggered(bool)), this, SLOT(exitApplication()));
+
+    console->show();
+    this->setCentralWidget(console);
 }
 
 MainWidget::~MainWidget() {
@@ -29,6 +30,10 @@ MainWidget::~MainWidget() {
 
 void MainWidget::exitApplication() {
     QApplication::quit();
+}
+
+void MainWidget::toggleConsole() {
+    console->show();
 }
 
 #ifdef KOBO
