@@ -9,22 +9,29 @@ MainWidget::MainWidget(QWidget* parent)
     : QWidget(parent),
       ui(new Ui::MainWidget),
       menu(ui->menu),
-      menuKobo(ui->menuKobo),
       actionExit(ui->actionExit),
+      menuKobo(ui->menuKobo),
       actionWifi(ui->actionWifi),
       menuDebug(ui->menuDebug),
       actionRotate(ui->actionRotate),
-      actionRefreshScreen(ui->actionRefreshScreen) {
+      actionRefreshScreen(ui->actionRefreshScreen),
+      console(new Console()) {
     ui->setupUi(this);
+    console->setParent(this);
 
 #ifdef KOBO
     connect(ui->actionWifi, SIGNAL(triggered(bool)), this, SLOT(toggleWifi(bool)));
 #endif
     connect(ui->actionExit, SIGNAL(triggered(bool)), this, SLOT(exitApplication()));
+    connect(ui->actionToggleConsole, SIGNAL(triggered(bool)), this, SLOT(toggleConsole()));
 }
 
 MainWidget::~MainWidget() {
     delete ui;
+}
+
+void MainWidget::toggleConsole() {
+    console->toggleConsole();
 }
 
 void MainWidget::exitApplication() {

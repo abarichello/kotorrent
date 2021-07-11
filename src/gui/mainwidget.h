@@ -7,6 +7,8 @@
 #include <QLayout>
 #include <QWidget>
 
+#include "console.h"
+
 namespace Ui {
     class MainWidget;
 }
@@ -20,6 +22,7 @@ public:
 
 public slots:
     void exitApplication();
+    void toggleConsole();
 #ifdef KOBO
     void toggleWifi(bool triggered);
 #endif
@@ -35,5 +38,5 @@ private:
     std::unique_ptr<QAction> actionRotate;
     std::unique_ptr<QAction> actionRefreshScreen;
 
-    std::unique_ptr<QWidget> console;
+    std::unique_ptr<Console> console;
 };

@@ -1,34 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Console</class>
- <widget class="QWidget" name="console">
+ <widget class="QWidget" name="Console">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>10</y>
+     <width>51</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="refreshButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>51</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+  </widget>
   <widget class="QPlainTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>371</width>
-     <height>271</height>
+     <x>0</x>
+     <y>40</y>
+     <width>391</width>
+     <height>281</height>
     </rect>
    </property>
    <property name="readOnly">
     <bool>true</bool>
    </property>
    <property name="plainText">
-    <string>Debug console
------
+    <string>Debug console:
+---
 </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearLogButton">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>84</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear log file</string>
    </property>
   </widget>
  </widget>
